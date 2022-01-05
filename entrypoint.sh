@@ -46,5 +46,6 @@ fi
 
 echo "reached 5"
 ls -ltra
+pwd
 echo "/usr/local/bin/kubectl" >> $GITHUB_PATH
 kubectl $*
