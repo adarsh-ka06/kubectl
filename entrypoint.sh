@@ -45,5 +45,6 @@ if [ ! -f "$HOME/.kube/config" ]; then
 fi
 
 echo "reached 5"
+ls -ltra
 echo "/usr/local/bin/kubectl" >> $GITHUB_PATH
 kubectl $*
