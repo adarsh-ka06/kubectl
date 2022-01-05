@@ -10,6 +10,7 @@ if [ ! -f "$HOME/.kube/config" ]; then
     if [ ! -z "${KUBE_CONFIG}" ]; then
 
         echo "$KUBE_CONFIG" | base64 -d > $HOME/.kube/config
+        echo "reached 1"
 
         if [ ! -z "${KUBE_CONTEXT}" ]; then
             kubectl config use-context $KUBE_CONTEXT
@@ -18,6 +19,7 @@ if [ ! -f "$HOME/.kube/config" ]; then
     elif [ ! -z "${KUBE_HOST}" ]; then
 
         echo "$KUBE_CERTIFICATE" > $HOME/.kube/certificate
+        echo "reached 2"
         kubectl config set-cluster default --server=https://$KUBE_HOST --certificate-authority=$HOME/.kube/certificate > /dev/null
 
         if [ ! -z "${KUBE_PASSWORD}" ]; then
@@ -39,5 +41,5 @@ if [ ! -f "$HOME/.kube/config" ]; then
 fi
 
 echo "/usr/local/bin/kubectl" >> $GITHUB_PATH
-
+echo "reached 3"
 kubectl $*
