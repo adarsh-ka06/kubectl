@@ -17,7 +17,7 @@ if [ ! -f "$HOME/.kube/config" ]; then
 
     elif [ ! -z "${KUBE_HOST}" ]; then
 
-        echo "$KUBE_CERTIFICATE" | base64 -d > $HOME/.kube/certificate
+        echo "$KUBE_CERTIFICATE" > $HOME/.kube/certificate
         kubectl config set-cluster default --server=https://$KUBE_HOST --certificate-authority=$HOME/.kube/certificate > /dev/null
 
         if [ ! -z "${KUBE_PASSWORD}" ]; then
